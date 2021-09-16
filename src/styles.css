@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+}
+
+.day-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.day-text {
+    margin: 20px;
+    font-size: 10rem;
+}
+
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    font-size: 10px;
+  }
