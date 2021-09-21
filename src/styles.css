@@ -12,11 +12,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
 }
 
 .day-text {
     margin: 20px;
     font-size: 10rem;
+}
+
+.icon {
+    padding: 50px;
+    border-radius: 10px;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+    text-shadow: 5px 3px 10px black;
+
+    background: rgb(2,0,36);
+    background: linear-gradient(60deg, rgb(16, 12, 85) 0%, rgb(25, 103, 167) 25%, rgb(125, 226, 247) 99%);
+
 }
 
 pre code {
@@ -26,3 +47,21 @@ pre code {
     padding: 20px;
     font-size: 10px;
   }
+
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.number{
+    font-size: 6rem;
+    line-height: 60px;
+}
+.days{
+    font-size: 3.5rem;
+}
+.challenge{
+    font-size: 1rem;
+}
