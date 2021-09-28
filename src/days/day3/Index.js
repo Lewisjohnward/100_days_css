@@ -35,7 +35,7 @@ const piramidShadow = keyframes`
   0%{clip-path: polygon(90% 0%, 30% 0%, 90% 40%); width: 160px; height: 80px;}
   25%{clip-path: polygon(90% 0%, 30% 0%, 90% 80%); width: 160px; height: 50px;}
   50%{clip-path: polygon(90% 0%, 30% 0%, 90% 40%); width: 160px; height: 60px;}
-  100%{clip-path: polygon(90% 0%, 30% 0%, 90% 40%); width: 160px; height: 60px;}
+  100%{clip-path: polygon(90% 0%, 30% 0%, 90% 40%); width: 160px; height: 100px;}
 `;
 
 const Div = styled.div`
