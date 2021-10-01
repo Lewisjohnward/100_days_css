@@ -6,6 +6,7 @@ import { Index5 } from "./days/day5/Index";
 import { Index6 } from "./days/day6/Index";
 import { Index7 } from "./days/day7/Index";
 import { Index8 } from "./days/day8/Index";
+import { Index9 } from "./days/day9/Index";
 import styled from "styled-components";
 
 const GridContainer = styled.div`
@@ -30,6 +31,7 @@ function App() {
         <Index6 grid={grid} />
         <Index7 grid={grid} />
         <Index8 grid={grid} />
+        <Index9 grid={grid} />
       </GridContainer>
     </>
   );
