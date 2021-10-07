@@ -10,6 +10,10 @@ const circle2Animation = keyframes`
 from {transform: rotate(0deg); transform-origin: 30px 50px;}
 to {transform: rotate(360deg); transform-origin: 10px 60px;}
 `;
+const circle3Animation = keyframes`
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg); }
+`;
 
 const Icon = styled.div`
   background: black;
@@ -32,7 +36,7 @@ const Icon = styled.div`
   }
 
   .blur {
-    filter: blur(10px);
+    filter: blur(5px);
   }
 
   .circle1 {
@@ -52,10 +56,14 @@ const Icon = styled.div`
     height: 25%;
     width: 25%;
     border-radius: 50%;
-    background: white;
+    background: whiredte;
 
     animation: ${circle1Animation} linear 3s infinite;
     transform-origin: 30px 90px;
+
+    .blur {
+      filter: blur(25px);
+    }
   }
   .circle3 {
     position: absolute;
@@ -78,6 +86,47 @@ const Icon = styled.div`
 
     animation:${circle2Animation} linear 4s infinite;
   }
+  .circle4 {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+    background: white;
+    transform-origin: 50px 55px;
+    animation:${circle3Animation} linear 4s infinite;
+  }
+  .circle5 {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+    background: white;
+    transform-origin: 50px 55px;
+    animation:${circle3Animation} linear 3s infinite;
+
+    .blur {
+      filter: blur(25px);
+    }
+  }
+  .circle6 {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    height: 65%;
+    width: 65%;
+    border-radius: 50%;
+    background: white;
+    transform-origin: 50px 55px;
+    animation:${circle3Animation} linear 2.5s infinite;
+
+    .blur {
+      filter: blur(50px);
+    }
+  }
 `;
 export const Index9 = ({ grid }) => {
   const string = ``;
@@ -89,9 +138,17 @@ export const Index9 = ({ grid }) => {
           <div className="centralcircle" />
           <div className="centralcircle blur" />
           <div className="circle1" />
+          <div className="circle1 blur" />
           <div className="circle2" />
+          <div className="circle2 blur" />
           <div className="circle3" />
+          <div className="circle3 blur" />
           <div className="circle4" />
+          <div className="circle4 blur" />
+          <div className="circle5" />
+          <div className="circle5 blur" />
+          <div className="circle6" />
+          <div className="circle6 blur" />
         </div>
       </Icon>
     );
