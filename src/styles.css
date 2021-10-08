@@ -1,3 +1,7 @@
+/* * > *{
+    animation-play-state: paused !important;
+} */
+
 * {
     margin: 0;
     padding: 0;
@@ -32,10 +36,8 @@
     font-weight: 900;
     color: white;
     text-shadow: 5px 3px 10px black;
-
     background: rgb(2,0,36);
     background: linear-gradient(60deg, rgb(16, 12, 85) 0%, rgb(25, 103, 167) 25%, rgb(125, 226, 247) 99%);
-
 }
 
 pre code {

@@ -84,7 +84,6 @@ const Black = styled.div`
   height: 100%;
   width: 100%;
 
-  opacity: 0.9;
   background: black;
 `
 

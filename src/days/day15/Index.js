@@ -13,47 +13,43 @@ const Icon = styled.div`
   text-align: left;
   font-weight: 300;
   font-size: 0.9em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const ShoeContainer = styled.div`
   position: absolute;
-  left: 500px;
-  top: -400px;
   z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 70px;
+  width: 200px;
+  height: 200px;
   background: white;
+
+  svg{
+    fill: none;
+    stroke: black;
+  }
 `;
 
 const Shoe = styled.div`
-  width: 75%;
-  height: 75%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  height: 40%;
+  width: 50%;
+  background: crimson;
+  transform: rotate(80deg);
+`;
 
-  .red {
-    height: 50%;
-    width: 45%;
-    background: crimson;
-  }
+const Background = styled.div`
+  position: relative;
+  background: moccasin;
+  height: 70%;
+  width: 100%;
+`;
 
-  .sole {
-    position: relative;
-    height: 20%;
-    width: 95%;
-    background: black;
-
-    .gap1{
-      position: absolute;
-      bottom: -20%;
-      left: 30%;
-      height: 40%;
-      width: 20%;
-      background: white;
-      border-radius: 50%;
-    }
-  }
+const Floor = styled.div`
+  height: 30%;
+  width: 100%;
+  background: black;
 `;
 
 const height = 50;
@@ -66,14 +62,14 @@ export const Index15 = ({ grid }) => {
   if (grid) {
     return (
       <Icon className="icon" onClick={() => setToggle((prev) => !prev)}>
-        <ShoeContainer>
-          <Shoe>
-            <div className="red" />
-            <div className="sole">
-              <div className="gap1" />
-            </div>
-          </Shoe>
-        </ShoeContainer>
+        <Background>
+          <ShoeContainer>
+            <svg height="210" width="400">
+              <path d="M150 0 L75 200 L225 200 Z" />
+            </svg>
+          </ShoeContainer>
+        </Background>
+        <Floor />
       </Icon>
     );
   }

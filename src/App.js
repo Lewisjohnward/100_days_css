@@ -14,7 +14,8 @@ import { Index12 } from "./days/day12/Index";
 import { Index13 } from "./days/day13/Index";
 import { Index14 } from "./days/day14/Index";
 import { Index15 } from "./days/day15/Index";
-
+import { Index16 } from "./days/day16/Index";
+import { Index17 } from "./days/day17/Index";
 import img from "./img/boots.png"
 import styled from "styled-components";
 
@@ -27,6 +28,23 @@ const GridContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0px 0px 10px 0px;
+
+  .imgcontainer{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  img {
+    position: absolute;
+    transform: rotate(-50deg);
+    top: -270px;
+    left: -90px;
+    width: 650px;
+    height: 650px;
+  }
+  
 `;
 
 const PageContainer = styled.div`
@@ -59,7 +77,12 @@ function App() {
         <Index13 grid={grid} />
         <Index14 grid={grid} />
         <Index15 grid={grid} />
-        {/* <img src={img} /> */}
+        <div className="imgcontainer">
+        <img src={img} />
+        </div>
+        <Index16 grid={grid} />
+        <Index17 grid={grid} className="brokenanimation" />
+        
       </GridContainer>
       </div>
     </PageContainer>
