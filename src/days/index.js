@@ -1,0 +1,1 @@
+export {Index as Index18} from "./day18/Index"

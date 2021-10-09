@@ -16,6 +16,7 @@ import { Index14 } from "./days/day14/Index";
 import { Index15 } from "./days/day15/Index";
 import { Index16 } from "./days/day16/Index";
 import { Index17 } from "./days/day17/Index";
+import {Index18} from "./days/index"
 import img from "./img/boots.png"
 import styled from "styled-components";
 
@@ -82,7 +83,7 @@ function App() {
         </div>
         <Index16 grid={grid} />
         <Index17 grid={grid} className="brokenanimation" />
-        
+        <Index18  grid={grid}/>
       </GridContainer>
       </div>
     </PageContainer>
