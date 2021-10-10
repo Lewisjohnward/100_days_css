@@ -67,7 +67,7 @@ const Strip = styled.div`
     return randomNum;
   }}%;
 
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 
   &::before {
@@ -117,7 +117,7 @@ const SpeechMarks = styled.p``;
 const height = 50;
 const width = 50;
 
-const numberOfTape = 5;
+const numberOfTape = 20;
 const array = new Array(numberOfTape).fill(0);
 
 export const Index17 = ({ grid }) => {
