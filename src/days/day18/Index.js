@@ -30,6 +30,7 @@ const ImgContainer = styled.div`
   width: 100%;
   height: 100%;
   background: red;
+  overflow: hidden;
 `;
 
 const Circle = styled.div`
@@ -61,46 +62,102 @@ const Circle = styled.div`
 
 const Dark = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: 6;
   height: 100%;
   width: 100%;
-  background: red;
-  &.active {
-    transition: filter 0.2s;
-    filter: brightness(50%);
-  }
 `;
 const Cross = styled.div`
   font-size: 2em;
   font-weight: 900;
 `;
 
-const overlayAnimation = keyframes`
+const topOverlayAnimation = keyframes`
   from{transform: translateY(-100%);}
   to{transform: translateY(0);}
-`
+`;
+
+const bottomOverlayAnimation = keyframes`
+from{transform: translateY(200%);}
+to{transform: translateY(100%);}
+`;
+
 const buttonAnimation = keyframes`
   from{transform: translateY(-200%);}
   to{transform: translateY(0);}
-`
+`;
+
+const buttonBottomOverlayAnimation = keyframes`
+from{transform: translateY(200%);}
+to{transform: translateY(0%);}
+`;
+
 
 const OverlayContainer = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
-  background: blue;
   opacity: 1;
-  z-index: 5;
+  z-index: 1;
 
-  animation: ${overlayAnimation} ease-in 0.2s forwards;
+  .image_container {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+
+    .background_image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      animation: ${topOverlayAnimation} ease-in 0.5s forwards;
+      background: url("https://static.toiimg.com/thumb/msid-38487526,width-748,height-499,resizemode=4,imgsize-248462/.jpg")
+        no-repeat fixed center;
+      filter: grayscale(100%);
+    }
+
+    img {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      width: 40%;
+      height: 80%;
+      border-radius: 50px;
+      box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.2);
+      animation: ${topOverlayAnimation} ease-in 1s forwards;
+    }
+  }
+
+  .bottom_container {
+    position: absolute;
+    
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: red;
+    animation: ${bottomOverlayAnimation} ease-in 0.5s forwards;
+
+    button{
+      border: none;
+      background: none;
+      box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.4);
+      padding: 5%;
+      border-radius: 10px;
+      animation: ${buttonBottomOverlayAnimation} ease-in 1s forwards;
+    }
+  }
 
   .button_container {
     position: absolute;
     top: 4%;
     right: 5%;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 15%;
     height: 15%;
     font-size: 2em;
@@ -109,26 +166,61 @@ const OverlayContainer = styled.div`
     border-radius: 100%;
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
     cursor: pointer;
-    animation: ${buttonAnimation} ease-in 0.5s forwards;
-    
+    animation: ${buttonAnimation} ease-in 1.6s forwards;
   }
 `;
 
+const User_Image = styled.div`
+  position: absolute;
+  top: -22%;
+  left: -20%;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  src: ${({ src }) => src};
+  transform: rotate(50deg) scale(0.2);
+
+
+  &.active {
+    transition: filter 0.2s;
+    filter: brightness(50%);
+  }
+`;
+
+const users = [
+  {
+    user: "a",
+    image: "https://100dayscss.com/codepen/13-1.jpg",
+  },
+  {
+    user: "b",
+    image: "https://100dayscss.com/codepen/13-2.jpg",
+  },
+  {
+    user: "c",
+    image: "https://100dayscss.com/codepen/13-3.jpg",
+  },
+  {
+    user: "d",
+    image: "https://100dayscss.com/codepen/13-4.jpg",
+  },
+];
+
 export const Index = ({ grid }) => {
   const [toggle, setToggle] = useState(false);
+  const [current, setCurrent] = useState(null);
 
   if (grid) {
     return (
       <>
         <Icon className={`icon`}>
-          {toggle ? (
-            <Overlay setToggle={setToggle} toggle={toggle}/>
+          {current ? (
+            <Overlay current={current} setCurrent={setCurrent} />
           ) : (
             <GridContainer>
-              <Img user={"a"} setToggle={setToggle} />
-              <Img user={"b"} setToggle={setToggle} />
-              <Img user={"c"} setToggle={setToggle} />
-              <Img user={"d"} setToggle={setToggle} />
+              {users.map((d) => (
+                <Img user={d.user} setCurrent={setCurrent} src={d.image} />
+              ))}
             </GridContainer>
           )}
         </Icon>
@@ -137,29 +229,38 @@ export const Index = ({ grid }) => {
   }
 };
 
-const Img = ({ user, setToggle }) => {
+const Img = ({ user, src, setCurrent }) => {
   const [visible, setVisible] = useState(false);
   return (
     <ImgContainer
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      onClick={() => setToggle(true)}
+      onClick={() => setCurrent({ user, src })}
     >
       <Circle className={visible ? "active" : ""}>
         <Cross>+</Cross>
       </Circle>
-      <Dark className={visible ? "active" : ""}>
-        <p>{user}</p>
-      </Dark>
+      <User_Image className={visible ? "active" : ""}>
+        <img src={src} />
+      </User_Image>
     </ImgContainer>
   );
 };
 
-const Overlay = ({setToggle, toggle}) => {
+const Overlay = ({ setCurrent, current }) => {
   return (
-    <OverlayContainer >
-      <div className={`button_container`} onClick={() => setToggle(false)}>
+    <OverlayContainer>
+      <div className={`button_container`} onClick={() => setCurrent(null)}>
         <p>X</p>
+      </div>
+      <div className="image_container">
+        <div className="background_image" />
+        <img src={current.src} />
+      </div>
+      <div className="bottom_container">
+        <button>X</button>
+        <button>Y</button>
+        <button>Z</button>
       </div>
     </OverlayContainer>
   );

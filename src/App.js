@@ -1,3 +1,4 @@
+import {useState} from "react"
 import {SideBar} from "./SideBar"
 import { Index1 } from "./days/day1/Index";
 import { Index2 } from "./days/day2/Index";
@@ -19,6 +20,7 @@ import { Index17 } from "./days/day17/Index";
 import {Index18} from "./days/index"
 import img from "./img/boots.png"
 import styled from "styled-components";
+import { Label } from "./components/Label";
 
 const GridContainer = styled.div`
   
@@ -51,15 +53,19 @@ const GridContainer = styled.div`
 const PageContainer = styled.div`
   display: flex;
   background: navajowhite;
-  & > :nth-child(1){
+  & > :nth-child(2){
     margin-right: 20px;
   }
 `
 
+
 const grid = true;
 function App() {
+  const [day, setDay] = useState(0)
+
   return (
     <PageContainer>
+      <Label day={day}/>
     <SideBar />
     <div>
       <GridContainer>
