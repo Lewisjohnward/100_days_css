@@ -1,2 +1,5 @@
 export {Index as Index18} from "./day18/Index"
 export {Index as Index19} from "./day19/Index"
+export {Index as Minesweeper} from "./minesweeper/Index"
+export {Index as Timer} from "./timer/Index"
+export {Index as Index20} from "./day20/Index"

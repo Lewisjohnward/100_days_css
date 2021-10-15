@@ -17,7 +17,7 @@ import { Index14 } from "./days/day14/Index";
 import { Index15 } from "./days/day15/Index";
 import { Index16 } from "./days/day16/Index";
 import { Index17 } from "./days/day17/Index";
-import {Index18, Index19} from "./days/index"
+import {Index18, Index19, Index20, Minesweeper, Timer} from "./days/index"
 import img from "./img/boots.png"
 import styled from "styled-components";
 import { Label } from "./components/Label";
@@ -91,6 +91,9 @@ function App() {
         <Index17 grid={grid} className="brokenanimation" />
         <Index18  grid={grid}/>
         <Index19  grid={grid}/>
+        <Timer grid={grid}/>
+        <Minesweeper grid={grid}/>
+        <Index20  grid={grid}/>
       </GridContainer>
       </div>
     </PageContainer>
