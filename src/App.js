@@ -17,7 +17,7 @@ import { Index14 } from "./days/day14/Index";
 import { Index15 } from "./days/day15/Index";
 import { Index16 } from "./days/day16/Index";
 import { Index17 } from "./days/day17/Index";
-import {Index18, Index19, Index20, Index21, Minesweeper, Timer, LineAnimation} from "./days/index"
+import {Index18, Index19, Index20, Index21, Minesweeper, Timer, LineAnimation, Index22} from "./days/index"
 import img from "./img/boots.png"
 import styled from "styled-components";
 import { Label } from "./components/Label";
@@ -96,6 +96,7 @@ function App() {
         <Index20  grid={grid}/>
         <LineAnimation grid={grid}/>
         <Index21 grid={grid} />
+        <Index22 grid={grid} />
       </GridContainer>
       </div>
     </PageContainer>
