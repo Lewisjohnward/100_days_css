@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 70px;
-  height: ${({ height }) => height}px;
+  
   background: tan;
   color: brown;
   
@@ -30,7 +30,7 @@ const IconContainer = styled.div`
 const height = window.innerHeight;
 export const SideBar = () => {
   return (
-    <Container height={height}>
+    <Container>
       <IconContainer>
         <i className="fab fa-github"></i>
         <i class="fab fa-linkedin"></i>

@@ -89,6 +89,18 @@ const ButtonDiv = styled.div`
   }
 `;
 
+const DateContainer = styled.div`
+  position: absolute;
+  top: 58%;
+  left: 20%;
+  font-size: 0.7em;
+  text-decoration: italic;
+
+  .today{
+    right: 0%;
+  }
+`
+
 export const Index = ({ grid }) => {
   const [seconds, setSeconds] = useState(0);
   const [active, setActive] = useState(false);
@@ -132,6 +144,8 @@ export const Index = ({ grid }) => {
           <Timer>
             <TimerContainer>{secondsToTime(seconds)}</TimerContainer>
           </Timer>
+          <DateContainer>15/10/2021</DateContainer>
+          <DateContainer className="today">15/10/2021</DateContainer>
           <ButtonContainer>
             <ButtonDiv>
               <Start_StopContainer

@@ -6,7 +6,12 @@ const Icon = styled.div`
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  background: saddlebrown;
+  background: linear-gradient(
+    75deg,
+    saddlebrown 0%,
+    black 100%
+
+  );
   opacity: 1;
   text-shadow: none;
   text-align: left;
@@ -25,6 +30,10 @@ const svgAnimation = keyframes`
   from{transform: scaleY(1);}
   to{transform: scaleY(0.95);}
 `;
+
+const roadAnimation = keyframes`
+  to{stroke-dashoffset: 0;}
+`
 
 const SVG = styled.svg`
   circle {
@@ -45,7 +54,9 @@ const SVG = styled.svg`
   line {
     stroke: black;
     stroke-width: 3;
-    stroke-dasharray: 4;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 200;
+    animation: ${roadAnimation} 1s linear infinite;
   }
 `;
 

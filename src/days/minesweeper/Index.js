@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { BiFlag } from "react-icons/bi"
 
 const Icon = styled.div`
   position: relative;
@@ -48,6 +49,7 @@ const Field = styled.div`
 `;
 
 const Square = styled.div`
+  position: relative;
   height: 100%;
   width: 100%;
   background: lightgray;
@@ -66,7 +68,10 @@ const Square = styled.div`
     transform: translateY(-1px);
     box-shadow: inset 2px 2px 3px white, inset -2px -2px 2px gray, 0px 0px 10px rgba(0, 0, 0, 0.4);
   }
+`
 
+const FlagIcon = styled(BiFlag)`
+  font-size: 1.5em;
 `
 
 const array = new Array(100).fill(0)
@@ -84,10 +89,19 @@ export const Index = ({ grid }) => {
         </BannerContainer>
         <FieldContainer>
           <Field>
-            {array.map(() => <Square />)}
+            {array.map(() => <SquareComponent />)}
           </Field>
         </FieldContainer>
       </Icon>
     );
   }
 };
+
+const SquareComponent = () => {
+  const [active, setActive] = useState(false)
+  return (
+  <Square onClick={() => setActive(true)}>
+    {active && <FlagIcon />}
+  </Square>
+  )
+}

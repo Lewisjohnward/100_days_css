@@ -17,7 +17,7 @@ import { Index14 } from "./days/day14/Index";
 import { Index15 } from "./days/day15/Index";
 import { Index16 } from "./days/day16/Index";
 import { Index17 } from "./days/day17/Index";
-import {Index18, Index19, Index20, Minesweeper, Timer} from "./days/index"
+import {Index18, Index19, Index20, Index21, Minesweeper, Timer, LineAnimation} from "./days/index"
 import img from "./img/boots.png"
 import styled from "styled-components";
 import { Label } from "./components/Label";
@@ -27,6 +27,7 @@ const GridContainer = styled.div`
   display: grid;
   gap: 10px;
   margin-top: 10px;
+  margin-left: 10px;
   grid-template-columns: repeat(7, 250px);
   align-items: center;
   justify-content: center;
@@ -61,11 +62,10 @@ const PageContainer = styled.div`
 
 const grid = true;
 function App() {
-  const [day, setDay] = useState(0)
+
 
   return (
     <PageContainer>
-      <Label day={day}/>
     <SideBar />
     <div>
       <GridContainer>
@@ -94,6 +94,8 @@ function App() {
         <Timer grid={grid}/>
         <Minesweeper grid={grid}/>
         <Index20  grid={grid}/>
+        <LineAnimation grid={grid}/>
+        <Index21 grid={grid} />
       </GridContainer>
       </div>
     </PageContainer>
